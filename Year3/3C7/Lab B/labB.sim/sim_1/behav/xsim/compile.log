@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/skomo/Downloads/LabB-codes/eq1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eq1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/skomo/Downloads/LabB-codes/eq2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eq2
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/skomo/Downloads/LabB-codes/eq2_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eq2_testbench
+ERROR: [VRFC 10-4982] syntax error near 'test_in0' [C:/Users/skomo/Downloads/LabB-codes/eq2_tb.v:22]
+ERROR: [VRFC 10-8530] module 'eq2_testbench' is ignored due to previous errors [C:/Users/skomo/Downloads/LabB-codes/eq2_tb.v:7]
