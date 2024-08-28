@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+C:/Users/skomo/Desktop/3C7 Labs/Lab C/Lab C.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,,,,,,,
+C:/Users/skomo/Desktop/3C7 Labs/Lab C/Lab C.srcs/sources_1/imports/Downloads/eq2_tb.v,1708891578,verilog,,,,sbra_testbench,,,,,,,,
+C:/Users/skomo/Desktop/3C7 Labs/Lab C/Lab C.srcs/sources_1/new/6bit_ripple_adder.v,1708876634,verilog,,C:/Users/skomo/Downloads/full_adder.v,,sixbit_ripple_adder,,,,,,,,
+C:/Users/skomo/Downloads/full_adder.v,1707766992,verilog,,C:/Users/skomo/Desktop/3C7 Labs/Lab C/Lab C.srcs/sources_1/imports/Downloads/eq2_tb.v,,FullAdder,,,,,,,,

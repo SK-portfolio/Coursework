@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Lab C.srcs/sources_1/new/6bit_ripple_adder.v" \
+"../../../../../../../Downloads/full_adder.v" \
+"../../../../Lab C.srcs/sources_1/imports/Downloads/eq2_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

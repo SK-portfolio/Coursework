@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="sbra_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="sbra_testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="955.311 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="150"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject type="divider" fp_name="divider68">
+      <obj_property name="label">X</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sbra_testbench/test_in0" type="array">
+      <obj_property name="ElementShortName">test_in0[5:0]</obj_property>
+      <obj_property name="ObjectShortName">test_in0[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider67">
+      <obj_property name="label">Y</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sbra_testbench/test_in1" type="array">
+      <obj_property name="ElementShortName">test_in1[5:0]</obj_property>
+      <obj_property name="ObjectShortName">test_in1[5:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider69">
+      <obj_property name="label">sel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sbra_testbench/select" type="logic">
+      <obj_property name="ElementShortName">select</obj_property>
+      <obj_property name="ObjectShortName">select</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider70">
+      <obj_property name="label">Sum</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sbra_testbench/test_out" type="array">
+      <obj_property name="ElementShortName">test_out[5:0]</obj_property>
+      <obj_property name="ObjectShortName">test_out[5:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider71">
+      <obj_property name="label">Overflow &amp; C_out</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sbra_testbench/test_overflow" type="logic">
+      <obj_property name="ElementShortName">test_overflow</obj_property>
+      <obj_property name="ObjectShortName">test_overflow</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sbra_testbench/test_cout" type="logic">
+      <obj_property name="ElementShortName">test_cout</obj_property>
+      <obj_property name="ObjectShortName">test_cout</obj_property>
+   </wvobject>
+</wave_config>
