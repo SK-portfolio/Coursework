@@ -1,1 +1,1 @@
-Course Assesment for 3C2 (Digital Circuts)
+Course Assesment for 3C2 (Digital Circuits)
