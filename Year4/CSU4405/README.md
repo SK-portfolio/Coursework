@@ -1,1 +1,1 @@
-CSU4405 Computer Graphics
+Final Project Assesment for CSU4405 (Computer Graphics)
