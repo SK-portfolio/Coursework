@@ -118,10 +118,6 @@ int main() {
     Shader skyboxShader("skybox_vertex.glsl", "skybox_fragment.glsl");
     Shader modelShader("model_vertex.glsl", "model_fragment.glsl");
 
-
-
-    // ground plane (TEMPORARY - to aid visualising 3d movemend)
-    //Ground ground;
     // ground plane (MODEL - easier to add road, pavement, etc. all at once)
     Model ground("models/groundbutcooler.obj");
 
@@ -201,10 +197,10 @@ int main() {
         modelShader.setMat4("projection", projection);
 
         // light position and view position
-        glm::vec3 lightPos = glm::vec3(sin(currFrame) * 100.0f, 100.0f, cos(currFrame) * 100.0f);               //path light travels
-        glm::vec3 lightTarget = glm::vec3(0.0f, 0.0f, 0.0f);                                                    //point light is looking at
-        glm::vec3 lightUp = glm::vec3(0.0f, 1.0f, 0.0f);                                                        //up orientation of light
-        lightView = glm::lookAt(lightPos, glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));                        //get view matrix for light
+        glm::vec3 lightPos = glm::vec3(sin(currFrame) * 100.0f, 100.0f, cos(currFrame) * 100.0f);   //path light travels
+        glm::vec3 lightTarget = glm::vec3(0.0f, 0.0f, 0.0f);                                        //point light is looking at
+        glm::vec3 lightUp = glm::vec3(0.0f, 1.0f, 0.0f);                                            //up orientation of light
+        lightView = glm::lookAt(lightPos, glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));            //get view matrix for light
         // combine ortho and viw mtrx => light-space transform
         lightSpaceMatrix = lightProjection * lightView;
         shader.setMat4("lightSpaceMatrix", lightSpaceMatrix);
@@ -296,255 +292,6 @@ int main() {
             BuildingModelA.Draw(modelShader);
         }
 
-/*
-        //                                                                                             (  <-X->  ,  Y(0)  ,  /\ Z \/   )
-        // Render BuildingA models (medium)
-        //QUAD (50,0,50) /(X,Z)
-        glm::mat4 modelA1 = glm::mat4(1.0f);
-        modelA1 = glm::translate(modelA1, glm::vec3(15.0f, 0.0f, 40.0f));
-        modelShader.setMat4("model", modelA1);
-        BuildingModelA.Draw(modelShader);
-
-        glm::mat4 modelA2 = glm::mat4(1.0f);
-        modelA2 = glm::translate(modelA2, glm::vec3(15.0f, 0.0f, 15.0f));
-        modelShader.setMat4("model", modelA2);
-        BuildingModelA.Draw(modelShader);
-
-        glm::mat4 modelA3 = glm::mat4(1.0f);
-        modelA3 = glm::translate(modelA3, glm::vec3(45.0f, 0.0f, 20.0f));
-        modelShader.setMat4("model", modelA3);
-        BuildingModelA.Draw(modelShader);
-
-        //QUAD (50,0,-50) /(X,-Z)
-        glm::mat4 modelA4 = glm::mat4(1.0f);
-        modelA4 = glm::translate(modelA4, glm::vec3(40.0f, 0.0f, -20.0f));
-        modelShader.setMat4("model", modelA4);
-        BuildingModelA.Draw(modelShader);
-
-        glm::mat4 modelA5 = glm::mat4(1.0f);
-        modelA5 = glm::translate(modelA5, glm::vec3(20.0f, 0.0f, -30.0f));
-        modelShader.setMat4("model", modelA5);
-        BuildingModelA.Draw(modelShader);
-
-        //QUAD (-50,0,-50) /(-X,-Z)
-        glm::mat4 modelA6 = glm::mat4(1.0f);
-        modelA6 = glm::translate(modelA6, glm::vec3(-20.0f, 0.0f, -35.0f));
-        modelShader.setMat4("model", modelA6);
-        BuildingModelA.Draw(modelShader);
-
-        glm::mat4 modelA7 = glm::mat4(1.0f);
-        modelA7 = glm::translate(modelA7, glm::vec3(-40.0f, 0.0f, -40.0f));
-        modelShader.setMat4("model", modelA7);
-        BuildingModelA.Draw(modelShader);
-
-        glm::mat4 modelA8 = glm::mat4(1.0f);
-        modelA8 = glm::translate(modelA8, glm::vec3(-15.0f, 0.0f, -15.0f));
-        modelShader.setMat4("model", modelA8);
-        BuildingModelA.Draw(modelShader);
-
-        //QUAD (-50,0,50) /(-X,Z)
-        glm::mat4 modelA9 = glm::mat4(1.0f);
-        modelA9 = glm::translate(modelA9, glm::vec3(-20.0f, 0.0f, 20.0f));
-        modelShader.setMat4("model", modelA9);
-        BuildingModelA.Draw(modelShader);
-
-        glm::mat4 modelA10 = glm::mat4(1.0f);
-        modelA10 = glm::translate(modelA10, glm::vec3(-40.0f, 0.0f, 40.0f));
-        modelShader.setMat4("model", modelA10);
-        BuildingModelA.Draw(modelShader);
-
-        //                                                                                             (  <-X->  ,  Y(0)  ,  /\ Z \/  )
-        // Render the BuildingB models (small)
-        //QUAD (50,0,50) /(X,Z)
-        glm::mat4 modelB1 = glm::mat4(1.0f);
-        modelB1 = glm::translate(modelB1, glm::vec3(10.0f, 0.0f, 45.0f));
-        modelB1 = glm::rotate(modelB1, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB1);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB2 = glm::mat4(1.0f);
-        modelB2 = glm::translate(modelB2, glm::vec3(10.0f, 0.0f, 35.0f));
-        modelB2 = glm::rotate(modelB2, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB2);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB3 = glm::mat4(1.0f);
-        modelB3 = glm::translate(modelB3, glm::vec3(10.0f, 0.0f, 25.0f));
-        modelB3 = glm::rotate(modelB3, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB3);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB4 = glm::mat4(1.0f);
-        modelB4 = glm::translate(modelB4, glm::vec3(10.0f, 0.0f, 15.0f));
-        modelB4 = glm::rotate(modelB4, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB4);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB5 = glm::mat4(1.0f);
-        modelB5 = glm::translate(modelB5, glm::vec3(10.0f, 0.0f, 10.0f));
-        modelB5 = glm::rotate(modelB5, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB5);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB6 = glm::mat4(1.0f);
-        modelB6 = glm::translate(modelB6, glm::vec3(15.0f, 0.0f, 10.0f));
-        modelB6 = glm::rotate(modelB6, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB6);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB7 = glm::mat4(1.0f);
-        modelB7 = glm::translate(modelB7, glm::vec3(25.0f, 0.0f, 10.0f));
-        modelB7 = glm::rotate(modelB7, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB7);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB8 = glm::mat4(1.0f);
-        modelB8 = glm::translate(modelB8, glm::vec3(35.0f, 0.0f, 10.0f));
-        modelB8 = glm::rotate(modelB8, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB8);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB9 = glm::mat4(1.0f);
-        modelB9 = glm::translate(modelB9, glm::vec3(45.0f, 0.0f, 10.0f));
-        modelB9 = glm::rotate(modelB9, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB9);
-        BuildingModelB.Draw(modelShader);
-
-        //QUAD (50,0,-50) /(X,-Z)
-        glm::mat4 modelB10 = glm::mat4(1.0f);
-        modelB10 = glm::translate(modelB10, glm::vec3(45.0f, 0.0f, -10.0f));
-        modelB10 = glm::rotate(modelB10, glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB10);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB11 = glm::mat4(1.0f);
-        modelB11 = glm::translate(modelB11, glm::vec3(35.0f, 0.0f, -10.0f));
-        modelB11 = glm::rotate(modelB11, glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB11);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB12 = glm::mat4(1.0f);
-        modelB12 = glm::translate(modelB12, glm::vec3(25.0f, 0.0f, -10.0f));
-        modelB12 = glm::rotate(modelB12, glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB12);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB13 = glm::mat4(1.0f);
-        modelB13 = glm::translate(modelB13, glm::vec3(15.0f, 0.0f, -10.0f));
-        modelB13 = glm::rotate(modelB13, glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB13);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB14 = glm::mat4(1.0f);
-        modelB14 = glm::translate(modelB14, glm::vec3(10.0f, 0.0f, -10.0f));
-        modelB14 = glm::rotate(modelB14, glm::radians(225.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB14);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB15 = glm::mat4(1.0f);
-        modelB15 = glm::translate(modelB15, glm::vec3(10.0f, 0.0f, -15.0f));
-        modelB15 = glm::rotate(modelB15, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB15);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB16 = glm::mat4(1.0f);
-        modelB16 = glm::translate(modelB16, glm::vec3(10.0f, 0.0f, -25.0f));
-        modelB16 = glm::rotate(modelB16, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB16);
-        BuildingModelB.Draw(modelShader);
-
-        //QUAD (-50,0,-50) /(-X,-Z)
-        glm::mat4 modelB17 = glm::mat4(1.0f);
-        modelB17 = glm::translate(modelB17, glm::vec3(-10.0f, 0.0f, -25.0f));
-        modelShader.setMat4("model", modelB17);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB18 = glm::mat4(1.0f);
-        modelB18 = glm::translate(modelB18, glm::vec3(-10.0f, 0.0f, -15.0f));
-        modelShader.setMat4("model", modelB18);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB19 = glm::mat4(1.0f);
-        modelB19 = glm::translate(modelB19, glm::vec3(-10.0f, 0.0f, -10.0f));
-        modelB19 = glm::rotate(modelB19, glm::radians(315.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB19);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB20 = glm::mat4(1.0f);
-        modelB20 = glm::translate(modelB20, glm::vec3(-15.0f, 0.0f, -10.0f));
-        modelB20 = glm::rotate(modelB20, glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB20);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB21 = glm::mat4(1.0f);
-        modelB21 = glm::translate(modelB21, glm::vec3(-25.0f, 0.0f, -10.0f));
-        modelB21 = glm::rotate(modelB21, glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB21);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB22 = glm::mat4(1.0f);
-        modelB22 = glm::translate(modelB22, glm::vec3(-35.0f, 0.0f, -10.0f));
-        modelB22 = glm::rotate(modelB22, glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB22);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB23 = glm::mat4(1.0f);
-        modelB23 = glm::translate(modelB23, glm::vec3(-45.0f, 0.0f, -10.0f));
-        modelB23 = glm::rotate(modelB23, glm::radians(270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB23);
-        BuildingModelB.Draw(modelShader);
-
-        //QUAD (-50,0,50) /(-X,Z)
-        glm::mat4 modelB24 = glm::mat4(1.0f);
-        modelB24 = glm::translate(modelB24, glm::vec3(-45.0f, 0.0f, 10.0f));
-        modelB24 = glm::rotate(modelB24, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB24);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB25 = glm::mat4(1.0f);
-        modelB25 = glm::translate(modelB25, glm::vec3(-35.0f, 0.0f, 10.0f));
-        modelB25 = glm::rotate(modelB25, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB25);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB26 = glm::mat4(1.0f);
-        modelB26 = glm::translate(modelB26, glm::vec3(-25.0f, 0.0f, 10.0f));
-        modelB26 = glm::rotate(modelB26, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB26);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB27 = glm::mat4(1.0f);
-        modelB27 = glm::translate(modelB27, glm::vec3(-15.0f, 0.0f, 10.0f));
-        modelB27 = glm::rotate(modelB27, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB27);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB28 = glm::mat4(1.0f);
-        modelB28 = glm::translate(modelB28, glm::vec3(-10.0f, 0.0f, 10.0f));
-        modelB28 = glm::rotate(modelB28, glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        modelShader.setMat4("model", modelB28);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB29 = glm::mat4(1.0f);
-        modelB29 = glm::translate(modelB29, glm::vec3(-10.0f, 0.0f, 15.0f));
-        modelShader.setMat4("model", modelB29);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB30 = glm::mat4(1.0f);
-        modelB30 = glm::translate(modelB30, glm::vec3(-10.0f, 0.0f, 25.0f));
-        modelShader.setMat4("model", modelB30);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB31 = glm::mat4(1.0f);
-        modelB31 = glm::translate(modelB31, glm::vec3(-10.0f, 0.0f, 35.0f));
-        modelShader.setMat4("model", modelB31);
-        BuildingModelB.Draw(modelShader);
-
-        glm::mat4 modelB32 = glm::mat4(1.0f);
-        modelB32 = glm::translate(modelB32, glm::vec3(-10.0f, 0.0f, 45.0f));
-        modelShader.setMat4("model", modelB32);
-        BuildingModelB.Draw(modelShader);
-        */
         // Render the BuildingB models (small)                    (  <-X->  ,  Y(0)  ,  /\ Z \/   )
         glm::vec3 buildingBPos[] = {
           //------------------QUAD (50,0,50) /(X,Z)------------------
@@ -591,43 +338,6 @@ int main() {
             modelShader.setMat4("model", modelB);
             BuildingModelB.Draw(modelShader);
         }
-        /*
-        //                                                                                             (  <-X->  ,  Y(0)  ,  /\ Z \/   )
-        // Render the BuildingC models (Big)
-        //QUAD (50,0,50) /(X,Z)
-        glm::mat4 modelC1 = glm::mat4(1.0f);
-        modelC1 = glm::translate(modelC1, glm::vec3(45.0f, 0.0f, 45.0f));
-        modelShader.setMat4("model", modelC1);
-        BuildingModelC.Draw(modelShader);
-
-        glm::mat4 modelC2 = glm::mat4(1.0f);
-        modelC2 = glm::translate(modelC2, glm::vec3(30.0f, 0.0f, 25.0f));
-        modelShader.setMat4("model", modelC2);
-        BuildingModelC.Draw(modelShader);
-
-        //QUAD (50,0,-50) /(X,-Z)
-        glm::mat4 modelC3 = glm::mat4(1.0f);
-        modelC3 = glm::translate(modelC3, glm::vec3(40.0f, 0.0f, -40.0f));
-        modelShader.setMat4("model", modelC3);
-        BuildingModelC.Draw(modelShader);
-
-        //QUAD (-50,0,-50) /(-X,-Z)
-        glm::mat4 modelC4 = glm::mat4(1.0f);
-        modelC4 = glm::translate(modelC4, glm::vec3(-40.0f, 0.0f, -20.0f));
-        modelShader.setMat4("model", modelC4);
-        BuildingModelC.Draw(modelShader);
-
-        //QUAD (-50,0,50) /(-X,Z)
-        glm::mat4 modelC5 = glm::mat4(1.0f);
-        modelC5 = glm::translate(modelC5, glm::vec3(-40.0f, 0.0f, 20.0f));
-        modelShader.setMat4("model", modelC5);
-        BuildingModelC.Draw(modelShader);
-
-        glm::mat4 modelC6 = glm::mat4(1.0f);
-        modelC6 = glm::translate(modelC6, glm::vec3(-20.0f, 0.0f, 40.0f));
-        modelShader.setMat4("model", modelC6);
-        BuildingModelC.Draw(modelShader);
-        */
 
         // Render the BuildingC models (Big)                                (  <-X->  ,  Y(0)  ,  /\ Z \/   )
         glm::vec3 buildingCPos[] = {
@@ -661,14 +371,6 @@ int main() {
         stone = glm::rotate(stone, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         modelShader.setMat4("model", stone);
         Monument.Draw(modelShader);
-        
-        //old building renderers 
-        // render model
-        //BuildingModel.Draw(modelShader);
-        //BuildingModel2.Draw(modelShader);
-
-        // draw ground plane (NOT NESSECARY ANYMORE)
-        //ground.Draw(groundShader, view, projection);
 
         // draw skybox
         skybox.Draw(skyboxShader, view, projection);
