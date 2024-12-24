@@ -1,1 +1,1 @@
-link to final project showcase video: idk
+[Final Project Showcase Video Here](https://youtu.be/XAbvx9r8owM)
