@@ -1,0 +1,259 @@
+-- Created by Stephen Komolafe (21336975)
+
+--
+-- Database Setup
+--
+
+DROP DATABASE IF EXISTS miisql;
+CREATE DATABASE miisql;
+USE miisql;
+
+--
+-- Table structure for table `mii`
+--
+
+DROP TABLE IF EXISTS `mii`;
+CREATE TABLE `mii` (
+  `MiiID` int NOT NULL COMMENT 'Identifier unique to every Mii',
+  `Nickname` varchar(15) NOT NULL COMMENT 'Name of Mii',
+  `Birthday` date DEFAULT NULL COMMENT '(Optional) NULL -> ??/??/????',
+  `Favorite Colour` varchar(2) NOT NULL DEFAULT 'R' COMMENT 'Shirt colour(R-Red, O-Orange, Y-Yellow, LG-LightGreen, G-Green, B-Blue, LB-LightBlue, P-Pink, PR-Purple, BR-Brown, W-White ,BK-Black)',
+  `Mii Creator` varchar(15) DEFAULT NULL COMMENT '		(Optional) Name/Alias of player who created current Mii',
+  `Mingle` tinyint NOT NULL DEFAULT '0' COMMENT '		(Optional) Enable sharing mii creations with other consoles [via Online/Remote Transfer]',
+  `Favorite?` tinyint NOT NULL DEFAULT '0' COMMENT '		(Optional) For Sorting Purposes [pants change from grey to dark red]',
+  `Gender` VARCHAR(1) NOT NULL COMMENT 				'M-Male, F-Female' ;
+  `SkinTone` varchar(3) NOT NULL DEFAULT '1,1' COMMENT '	Format: (row),(column)',
+  `HeadType` varchar(3) NOT NULL DEFAULT '1,1' COMMENT '	Format: (row),(column)',
+  `HairType` varchar(5) DEFAULT '1.1.1' COMMENT '		Format: (page),(row),(column)\\n<3,4,1> = "Bald"(/null)',
+  `Hair Colour` varchar(3) NOT NULL DEFAULT '1,2' COMMENT '	Format: (row),(column)',
+  `Height` int NOT NULL DEFAULT '5' COMMENT '			Scale: 1(Shortest)-10(Tallest)',
+  `Weight` int NOT NULL DEFAULT '5' COMMENT '			Scale: 1(Thinnest)-10(Largest)',
+  `PlayNum` int NOT NULL COMMENT '				Foreign Key -> Player',
+  `ConID` varchar(19) NOT NULL COMMENT '			Foreign Key -> Console',
+  `MiiChanID` varchar(6) NOT NULL COMMENT '			Foreign Key -> Channel',
+  PRIMARY KEY (`MiiID`),
+  UNIQUE KEY `MiiID_UNIQUE` (`MiiID`),
+  KEY `ConID_idx` (`ConID`),
+  KEY `MiiChanID_idx` (`MiiChanID`),
+  KEY `PlayNum_idx` (`PlayNum`),
+  CONSTRAINT `ConID` FOREIGN KEY (`ConID`) REFERENCES `console` (`ConsoleID`),
+  CONSTRAINT `MiiChanID` FOREIGN KEY (`MiiChanID`) REFERENCES `software` (`TitleID`),
+  CONSTRAINT `PlayNum` FOREIGN KEY (`PlayNum`) REFERENCES `player` (`PlayerNo`)
+)
+
+--
+-- Data for table `mii`
+--
+
+LOCK TABLES `mii` WRITE;
+INSERT INTO `mii` (`MiiID`, `Nickname`, `Birthday`, `Favorite Colour`, `Mii Creator`, `Mingle`, `Favorite?`, `Gender`, `SkinTone`, `HeadType`, `HairType`, `Hair Colour`, `Height`, `Weight`, `PlayNum`, `ConID`, `MiiChanID`) VALUES 
+(0,'Matt','2006-08-30','O','\"Me\"',0,1,'M','2,2','4,2','3,4,1','1,1',5,5,1,'2351-4597-5015-9520','HACA'),
+(1,'Hamburger',NULL,'O',NULL,1,0,'M','1,3','3,2','3,4,1','1,1',1,10,2,'2351-4597-5015-9520','HACA'),
+(2,'Lucía','2006-08-27','LG',NULL,0,1,'F','1,1','3,1','4,3,2','2,3',5,5,3,'2351-4597-5015-9520','HACA'),
+(3,'Peter G.',NULL,'W','\"#1FamGuyFan\"',1,0,'M','2,1','2,2','1,1,3','1,3',8,10,4,'5602-2894-8985-9937','HACA');
+UNLOCK TABLES;
+
+--
+-- Table structure for table `facial attributes`
+--
+
+DROP TABLE IF EXISTS `facial_attributes`;
+CREATE TABLE `facial_attributes` (
+  `miID` int NOT NULL,
+  `FacialFeatures` varchar(3) DEFAULT NULL COMMENT 'Freckles, Wrinkles, Makeup, etc.  	Format: (row),(column)',
+  `EyeType` varchar(5) NOT NULL DEFAULT '1,1,1' COMMENT '				Format: (page),(row),(column)',
+  `EyeColour` varchar(3) NOT NULL DEFAULT '1,1' COMMENT '				Format: (row),(column)',
+  `EyeBrowType` varchar(5) NOT NULL DEFAULT '1,1,1' COMMENT '				Format: (page),(row),(column)',
+  `EyeBrowColour` varchar(3) NOT NULL DEFAULT '1,1' COMMENT '				Format: (row),(column)',
+  `NoseType` varchar(3) NOT NULL DEFAULT '1,1' COMMENT '				Format: (row),(column)',
+  `MouthType` varchar(5) NOT NULL DEFAULT '1,1,1' COMMENT '				Format: (page),(row),(column)',
+  `GlassesType` varchar(3) DEFAULT NULL COMMENT '					Format: (row),(column)',
+  `GlassesColour` varchar(2) NOT NULL DEFAULT 'BK' COMMENT 'Changes glasses colour 	(BK-Black, BR-Brown, R-Red, B-Blue, Y-Yellow, W-White)',
+  `FacialHairType` varchar(15) NOT NULL COMMENT '					Format: [Beard(B)](row),(column) [Mustache(m)](row),(column)',
+  `FacialHairColour` varchar(3) NOT NULL DEFAULT '1,1' COMMENT '				Format: (row),(column)',
+  `Mole` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`miID`),
+  KEY `mID_idx` (`miID`),
+  CONSTRAINT `miID` FOREIGN KEY (`miID`) REFERENCES `mii` (`MiiID`)
+)
+
+--
+-- Data for table `facial attributes`
+--
+
+LOCK TABLES `facial_attributes` WRITE;
+INSERT INTO `facial_attributes` (`miID`, `FacialFeatures`, `EyeType`, `EyeColour`, `EyeBrowType`, `EyeBrowColour`, `NoseType`, `MouthType`, `GlassesType`, `GlassesColour`, `FacialHairType`, `FacialHairColour`, `Mole`) VALUES 
+(0,'4,1','4,1,2','1,1','1,2,2','1,1','2,1','1,3,2',NULL,'1,1','[B]2,1 [M]2,2','1,1',0),
+(1,'1,3','3,4,1','2,3','2,1,3','1,2','1,3','2,1,1',NULL,'1,1','[B]NULL [M]1,2','1,2',0),
+(2,'2,1','2,1','1,3','1,2,1','1,1','1,1','1,2,1',NULL,'1,1','[B]NULL [M]NULL','1,1',0),
+(3,NULL,'3,3,3','1,2','2,3,2','1,1','3,1','2,3,1','2,1','1,1','[B]NULL [M]1,2','2,4',1);
+UNLOCK TABLES;
+
+--
+-- Table structure for table `player`
+--
+
+DROP TABLE IF EXISTS `player`;
+CREATE TABLE `player` (
+  `PlayerNo` int NOT NULL COMMENT 'Player Number of Individual during  Mii creation/most recent use in software',
+  `RepsMID` int NOT NULL,
+  PRIMARY KEY (`PlayerNo`),
+  KEY `RepsMID_idx` (`RepsMID`),
+  CONSTRAINT `RepsMID` FOREIGN KEY (`RepsMID`) REFERENCES `mii` (`MiiID`)
+)
+
+--
+-- Data for table `player`
+--
+
+LOCK TABLES `player` WRITE;
+INSERT INTO `player` (`PlayerNo`, `RepsMID`) VALUES 
+(1,0),
+(2,1),
+(3,2),
+(4,3);
+UNLOCK TABLES;
+
+--
+-- Table structure for table `console`
+--
+
+DROP TABLE IF EXISTS `console`;
+CREATE TABLE `console` (
+  `ConsoleID` varchar(19) NOT NULL COMMENT '						                              Format: "1234-5678-9012-3456"',
+  `Storage(MB)` varchar(12) NOT NULL COMMENT 'Internal Storage for Channels/WiiWare  	Format: "[TotChannelSize+ SystemFiles(250)]/Capacity(512)"',
+  `FirmwareVersion` varchar(4) NOT NULL COMMENT '					                            Format: "1.2(region)"  [Where region -> U(USA), E(Europe), J(Japan)]',
+  `OnlineID` varchar(15) NOT NULL COMMENT '						                                Format: "123 456 789 012"',
+  PRIMARY KEY (`ConsoleID`)
+) 
+
+--
+-- Data for table `console`
+--
+
+LOCK TABLES `console` WRITE;
+INSERT INTO `console` (`ConsoleID`, `Storage(MB)`, `FirmwareVersion`, `OnlineID`) VALUES 
+('2351-4597-5015-9520','364.56/512','4.3E','209-591-407-786'),
+--Peter.G Mii’s console of origin (indicating they were received via online sharing)
+('5602-2894-8985-9937','490.72/512','4.3U','484-827-161-976');
+UNLOCK TABLES;
+
+--
+-- Table structure for table `software`
+--
+
+DROP TABLE IF EXISTS `software`;
+CREATE TABLE `software` (
+  `TitleID` varchar(6) NOT NULL DEFAULT '-',
+  `Type` varchar(45) NOT NULL,
+  `Title` varchar(45) NOT NULL,
+  `Genre` varchar(15) NOT NULL,
+  `Developer` varchar(45) NOT NULL,
+  `Publisher` varchar(45) NOT NULL,
+  `ReleaseDate` date NOT NULL,
+  `FileSize(GB)` double NOT NULL COMMENT 'Size of data stored on disc',
+  `Region` varchar(6) NOT NULL COMMENT '"NTSC-J" -> Japan/Asia "NTSC-U" -> Americas "NTSC-C" -> China "PAL" -> Europe, New Zealand, Australia, Oceania, Middle East, India, South Africa',
+  `HrdwID` varchar(19) NOT NULL COMMENT 'Format: "1234 5678 9012 3456"',
+  PRIMARY KEY (`TitleID`),
+  UNIQUE KEY `TitleID_UNIQUE` (`TitleID`),
+  KEY `HrdwID_idx` (`HrdwID`),
+  CONSTRAINT `HrdwID` FOREIGN KEY (`HrdwID`) REFERENCES `console` (`ConsoleID`)
+)
+
+--
+-- Data for table `software`
+--
+
+LOCK TABLES `software` WRITE;
+INSERT INTO `software` (`TitleID`, `Type`, `Title`, `Genre`, `Developer`, `Publisher`, `ReleaseDate`, `FileSize(GB)`, `Region`, `HrdwID`) VALUES
+('HACA','Channel','Mii Channel','Utility','Nintendo','Nintendo','2006-12-08',0.0082,'PAL','2351-4597-5015-9520'),
+('HAPP','Channel','Mii Contest Channel','Utility','Nintendo','Nintendo','2007-11-12',0.0218,'PAL','2351-4597-5015-9520'),
+('RF8P69','Game(Disc)','Wii Sports','Sports','Nintendo EAD','Nintendo','2006-12-08',0.63,'PAL','2351-4597-5015-9520'),
+('RMCP01','Game(Disc)','Mario Kart Wii','Racing','Nintendo EAD','Nintendo','2008-04-11',2.6,'PAL','2351-4597-5015-9520'),
+('RODP01','Game(Disc)','Mario & Sonic at the Olympic Games','Sports','Sega Sports R&D','Sega, Nintendo','2007-11-23',1.89,'PAL','2351-4597-5015-9520'),
+('RSPP01','Game(Disc)','WarioWare: Smooth Moves','Minigame','Nintendo SPD, Intelligent Systems','Nintendo','2007-01-12',3.27,'PAL','2351-4597-5015-9520'),
+('RWSP8P','Game(Disc)','Wii Sports Resort','Sports','Nintendo EAD','Nintendo','2009-07-24',0.83,'PAL','2351-4597-5015-9520'),
+('RZTP01','Game(Disc)','FIFA 08','Sports','EA Canada','EA Sports','2007-09-27',3.13,'PAL','2351-4597-5015-9520'),
+('SNCP8P','Game(Disc)','Sonic Colours','Platformer','Sonic Team','Sega','2010-11-12',3.53,'PAL','2351-4597-5015-9520'),
+('SUPP01','Game(Disc)','Wii Party','Party','NDCube, Nintendo SPD','Nintendo','2010-10-08',1.02,'PAL','2351-4597-5015-9520'),
+('WDMP','Game(WiiWare)','Dr. Mario Online Rx','Puzzle','Arika','Nintendo','2008-05-20',0.0163,'PAL','2351-4597-5015-9520'),
+('WM8P','Game(WiiWare)','Bomberman Blast','Action','Hudson Soft','Hudson Soft','2008-09-12',0.031,'PAL','2351-4597-5015-9520'),
+('WUNP','Game(WiiWare)','Uno','Card','Gameloft','Gameloft','2009-11-05',0.0373,'PAL','2351-4597-5015-9520');
+UNLOCK TABLES;
+
+--
+-- Table structure for table `used_in`
+--
+
+DROP TABLE IF EXISTS `used_in`;
+CREATE TABLE `used_in` (
+  `SID` varchar(6) NOT NULL,
+  `MID` int NOT NULL COMMENT 'ID of most recently used MII in software',
+  PRIMARY KEY (`SID`,`MID`),
+  KEY `MID_idx` (`MID`),
+  KEY `SID_idx` (`SID`),
+  CONSTRAINT `MID` FOREIGN KEY (`MID`) REFERENCES `mii` (`MiiID`),
+  CONSTRAINT `SID` FOREIGN KEY (`SID`) REFERENCES `software` (`TitleID`)
+)
+
+--
+-- Data for table `used in`
+--
+
+LOCK TABLES `used_in` WRITE;
+INSERT INTO `used_in` (`SID`, `MID`) VALUES 
+('RMCP01',0),
+('SNCP8P',0),
+('WDMP',0),
+('RWSP8P',1),
+('RZTP01',1),
+('WM8P',1),
+('HAPP',2),
+('RF8P69',2),
+('RSPP01',2),
+('HACA',3),
+('RODP01',3),
+('SUPP01',3),
+('WUNP',3);
+UNLOCK TABLES;
+
+
+DELIMITER ;
+
+--
+-- Queries for MySQL command line client
+--
+
+-- Complete database view
+SHOW DATABASES;
+USE miisql;
+SHOW TABLES;
+
+DESCRIBE mii;
+SELECT * FROM mii;
+
+DESCRIBE facial_attributes;
+SELECT * FROM facial_attributes;
+
+DESCRIBE player;
+SELECT * FROM player;
+
+DESCRIBE console;
+SELECT * FROM console;
+
+DESCRIBE software;
+SELECT * FROM software;
+
+DESCRIBE used_in;
+SELECT * FROM used_in;
+
+-- Query to retrieve all Mii entities
+SELECT * FROM `mii`;
+
+-- Query to retrieve all software entities where the genre is "Sports"
+SELECT * FROM `software`
+WHERE `Genre` = `Sports`;
+
+-- Query to retrieve all Title IDs from software where a specific Mii has been recently used in
+SELECT * FROM `used_in`
+WHERE `MID` = '3';
