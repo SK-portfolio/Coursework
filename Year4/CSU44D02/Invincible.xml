@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimatedShow>
+    <Title>Invincible</Title>
+    <Season>1</Season>
+    <Episode>
+        <EpisodeTitle>It’s About Time</EpisodeTitle>
+        <EpisodeNumber>1</EpisodeNumber>
+        <Director>Jeff Allen</Director>
+        <Producer>Simon Racioppa</Producer>
+        <Producer>Robert Kirkman</Producer>
+        <Scene>
+            <SceneNumber>5</SceneNumber>
+            <Description>The Grayson family sits at the dinner table. Mark is about to tell his parents the good news.</Description>
+            <Location>Grayson Family Dining Room</Location>
+            <Shot>
+                <ShotNumber>1</ShotNumber>
+                <ShotInstructions>Mark enters the dinning room and sits at the table. Debbie finishes setting the table</ShotInstructions>
+                <Prop>
+                    <PropName>Plate of Roast Chicken</PropName>
+                    <Usage>Held by Debbie. Placed on the table out of view for the rest of the scene.</Usage>
+                </Prop>
+                <Dialogue>
+                    <Character>Debbie Grayson</Character>
+                    <Text>And a big welcome home to my favorite son.</Text>
+                </Dialogue>
+            </Shot>
+            <Shot>
+                <ShotNumber>2</ShotNumber>
+                <ShotInstructions>A close-up of Debbie as she sits at the table opposite to Mark</ShotInstructions>
+                <Dialogue>
+                    <Character>Debbie Grayson</Character>
+                    <Text>I made some chicken, but I also heated up some authentic German bratwurst flown in special today, just for you.</Text>
+                </Dialogue>
+            </Shot>
+            <Shot>
+                <ShotNumber>3</ShotNumber>
+                <ShotInstructions>A close-up of Mark sitting at the opposite side of the table</ShotInstructions>
+                <Dialogue>
+                    <Character>Mark Grayson</Character>
+                    <Text>I... had a pretty interesting day.</Text>
+                </Dialogue>
+            </Shot>
+            <Shot>
+                <ShotNumber>4</ShotNumber>
+                <ShotInstructions>Nolan arrives at the dinner table in a blur of motion, kisses Debbie on her forehead, and sits at the table.</ShotInstructions>
+                <Prop>
+                    <PropName>Wine Glass</PropName>
+                    <Usage>Almost tips over as Nolan enters the dining room. Is caught by Debbie and repositioned.</Usage>
+                </Prop>
+                <Dialogue>
+                    <Character>Nolan Grayson</Character>
+                    <Text>Sorry I'm late. Honest to God, a dragon was attacking Hong Kong. I stopped it.</Text>
+                </Dialogue>
+                <Dialogue>
+                    <Character>Debbie Grayson</Character>
+                    <Text>Ooh, a dragon. Nice. Mark was getting ready to tell us how interesting his day was.</Text>
+                </Dialogue>
+            </Shot>
+            <Shot>
+                <ShotNumber>5</ShotNumber>
+                <ShotInstructions>Point of view from Noland and Debbie facing towards Mark.</ShotInstructions>
+                <Dialogue>
+                    <Character>Mark Grayson</Character>
+                    <Text>Guess who's finally getting his powers? Haha.</Text>
+                </Dialogue>
+            </Shot>
+            <Shot>
+                <ShotNumber>6</ShotNumber>
+                <ShotInstructions>Focus on Nolan's reaction as he processes Mark's news.</ShotInstructions>
+                <Dialogue>
+                    <Character>Nolan Grayson</Character>
+                    <Text>Are you sure?</Text>
+                </Dialogue>
+            </Shot>
+            <Shot>
+                <ShotNumber>7</ShotNumber>
+                <ShotInstructions>Focus on Mark as he responds, uncertain of his father's excitement.</ShotInstructions>
+                <Dialogue>
+                    <Character>Mark Grayson</Character>
+                    <Text>Pretty sure. Threw a trash bag into space. At work.</Text>
+                </Dialogue>
+            </Shot>
+            <Shot>
+                <ShotNumber>8</ShotNumber>
+                <ShotInstructions>Point of view behind Mark facing towards Nolan and Debbie.</ShotInstructions>
+            </Shot>
+            <Shot>
+                <ShotNumber>9</ShotNumber>
+                <ShotInstructions>Point of view from underneath the table. Debbie kicks Nolan's foot to regain his attention.</ShotInstructions>
+            </Shot>
+            <Shot>
+                <ShotNumber>10</ShotNumber>
+                <ShotInstructions>Noland, perks up to respond appropriately to the situation.</ShotInstructions>
+                <Dialogue>
+                    <Character>Nolan Grayson</Character>
+                    <Text>Oh, that's great, son, just great! If you're up for it, i'll make some time tomorrow for training.</Text>
+                </Dialogue>
+                <Dialogue>
+                    <Character>Debbie Grayson</Character>
+                    <Text>This is so exciting!</Text>
+                </Dialogue>
+                <Dialogue>
+                    <Character>Nolan Grayson</Character>
+                    <Text>Bright and early tomorrow, Mark. Make sure you get a good night's sleep.</Text>
+                </Dialogue>
+            </Shot>
+            <Shot>
+                <ShotNumber>11</ShotNumber>
+                <ShotInstructions>Focus on Mark as he responds, elated at his father's response.</ShotInstructions>
+                <Dialogue>
+                    <Character>Mark Grayson</Character>
+                    <Text>Ha! For sure!</Text>
+                </Dialogue>
+            </Shot>
+        </Scene>
+        <VoiceActor>
+            <ActorName>Sandra Oh</ActorName>
+            <CharacterName>Debbie Grayson</CharacterName>
+        </VoiceActor>
+        <VoiceActor>
+            <ActorName>Steven Yeun</ActorName>
+            <CharacterName>Mark Grayson</CharacterName>
+        </VoiceActor>
+        <VoiceActor>
+            <ActorName>J.K. Simmons</ActorName>
+            <CharacterName>Nolan Grayson</CharacterName>
+        </VoiceActor>
+    </Episode>
+</AnimatedShow>

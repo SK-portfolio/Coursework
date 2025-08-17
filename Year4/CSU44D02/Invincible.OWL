@@ -1,0 +1,249 @@
+Prefix(:=<http://www.example.org/invincible#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.example.org/invincible>
+
+Declaration(Class(:AnimatedShow))
+Declaration(Class(:Character))
+Declaration(Class(:Dialogue))
+Declaration(Class(:Director))
+Declaration(Class(:Episode))
+Declaration(Class(:FictionalEntity))
+Declaration(Class(:Instruction))
+Declaration(Class(:Location))
+Declaration(Class(:MediaEntity))
+Declaration(Class(:Person))
+Declaration(Class(:Producer))
+Declaration(Class(:Prop))
+Declaration(Class(:PropUsage))
+Declaration(Class(:Scene))
+Declaration(Class(:Shot))
+Declaration(Class(:ShotInstruction))
+Declaration(Class(:VoiceActor))
+Declaration(ObjectProperty(:directedBy))
+Declaration(ObjectProperty(:hasDialogue))
+Declaration(ObjectProperty(:hasEpisode))
+Declaration(ObjectProperty(:hasScene))
+Declaration(ObjectProperty(:hasShot))
+Declaration(ObjectProperty(:hasShotInstruction))
+Declaration(ObjectProperty(:hasUsageInstruction))
+Declaration(ObjectProperty(:portrayedBy))
+Declaration(ObjectProperty(:producedBy))
+Declaration(ObjectProperty(:spokenBy))
+Declaration(ObjectProperty(:spokenByActor))
+Declaration(ObjectProperty(:takesPlaceAt))
+Declaration(ObjectProperty(:usesProp))
+Declaration(DataProperty(:actorName))
+Declaration(DataProperty(:characterName))
+Declaration(DataProperty(:dialogueText))
+Declaration(DataProperty(:episodeNumber))
+Declaration(DataProperty(:instructionText))
+Declaration(DataProperty(:locationName))
+Declaration(DataProperty(:propName))
+Declaration(DataProperty(:sceneNumber))
+Declaration(DataProperty(:seasonNumber))
+Declaration(DataProperty(:shotNumber))
+Declaration(DataProperty(:title))
+Declaration(DataProperty(:usageDescription))
+############################
+#   Object Properties
+############################
+
+# Object Property: :directedBy (:directedBy)
+
+ObjectPropertyDomain(:directedBy :Episode)
+ObjectPropertyRange(:directedBy :Director)
+
+# Object Property: :hasDialogue (:hasDialogue)
+
+ObjectPropertyDomain(:hasDialogue :Shot)
+ObjectPropertyRange(:hasDialogue :Dialogue)
+
+# Object Property: :hasEpisode (:hasEpisode)
+
+ObjectPropertyDomain(:hasEpisode :AnimatedShow)
+ObjectPropertyRange(:hasEpisode :Episode)
+
+# Object Property: :hasScene (:hasScene)
+
+ObjectPropertyDomain(:hasScene :Episode)
+ObjectPropertyRange(:hasScene :Scene)
+
+# Object Property: :hasShot (:hasShot)
+
+ObjectPropertyDomain(:hasShot :Scene)
+ObjectPropertyRange(:hasShot :Shot)
+
+# Object Property: :hasShotInstruction (:hasShotInstruction)
+
+ObjectPropertyDomain(:hasShotInstruction :Shot)
+ObjectPropertyRange(:hasShotInstruction :ShotInstruction)
+
+# Object Property: :hasUsageInstruction (:hasUsageInstruction)
+
+ObjectPropertyDomain(:hasUsageInstruction :Prop)
+ObjectPropertyRange(:hasUsageInstruction :PropUsage)
+
+# Object Property: :portrayedBy (:portrayedBy)
+
+ObjectPropertyDomain(:portrayedBy :Character)
+ObjectPropertyRange(:portrayedBy :VoiceActor)
+
+# Object Property: :producedBy (:producedBy)
+
+ObjectPropertyDomain(:producedBy :Episode)
+ObjectPropertyRange(:producedBy :Producer)
+
+# Object Property: :spokenBy (:spokenBy)
+
+ObjectPropertyDomain(:spokenBy :Dialogue)
+ObjectPropertyRange(:spokenBy :Character)
+
+# Object Property: :spokenByActor (:spokenByActor)
+
+ObjectPropertyDomain(:spokenByActor :Dialogue)
+ObjectPropertyRange(:spokenByActor :VoiceActor)
+
+# Object Property: :takesPlaceAt (:takesPlaceAt)
+
+ObjectPropertyDomain(:takesPlaceAt :Scene)
+ObjectPropertyRange(:takesPlaceAt :Location)
+
+# Object Property: :usesProp (:usesProp)
+
+ObjectPropertyDomain(:usesProp :Shot)
+ObjectPropertyRange(:usesProp :Prop)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :actorName (:actorName)
+
+DataPropertyDomain(:actorName :VoiceActor)
+DataPropertyRange(:actorName xsd:string)
+
+# Data Property: :characterName (:characterName)
+
+DataPropertyDomain(:characterName :Character)
+DataPropertyRange(:characterName xsd:string)
+
+# Data Property: :dialogueText (:dialogueText)
+
+DataPropertyDomain(:dialogueText :Dialogue)
+DataPropertyRange(:dialogueText xsd:string)
+
+# Data Property: :episodeNumber (:episodeNumber)
+
+DataPropertyDomain(:episodeNumber :Episode)
+DataPropertyRange(:episodeNumber xsd:integer)
+
+# Data Property: :instructionText (:instructionText)
+
+DataPropertyDomain(:instructionText :ShotInstruction)
+DataPropertyRange(:instructionText xsd:string)
+
+# Data Property: :locationName (:locationName)
+
+DataPropertyDomain(:locationName :Location)
+DataPropertyRange(:locationName xsd:string)
+
+# Data Property: :propName (:propName)
+
+DataPropertyDomain(:propName :Prop)
+DataPropertyRange(:propName xsd:string)
+
+# Data Property: :sceneNumber (:sceneNumber)
+
+DataPropertyDomain(:sceneNumber :Scene)
+DataPropertyRange(:sceneNumber xsd:integer)
+
+# Data Property: :seasonNumber (:seasonNumber)
+
+DataPropertyDomain(:seasonNumber :AnimatedShow)
+DataPropertyRange(:seasonNumber xsd:integer)
+
+# Data Property: :shotNumber (:shotNumber)
+
+DataPropertyDomain(:shotNumber :Shot)
+DataPropertyRange(:shotNumber xsd:integer)
+
+# Data Property: :title (:title)
+
+DataPropertyDomain(:title :AnimatedShow)
+DataPropertyDomain(:title :Episode)
+DataPropertyRange(:title xsd:string)
+
+# Data Property: :usageDescription (:usageDescription)
+
+DataPropertyDomain(:usageDescription :Prop)
+DataPropertyRange(:usageDescription xsd:string)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :AnimatedShow (:AnimatedShow)
+
+SubClassOf(:AnimatedShow :MediaEntity)
+
+# Class: :Character (:Character)
+
+SubClassOf(:Character :FictionalEntity)
+
+# Class: :Dialogue (:Dialogue)
+
+SubClassOf(:Dialogue :MediaEntity)
+
+# Class: :Director (:Director)
+
+SubClassOf(:Director :Person)
+
+# Class: :Episode (:Episode)
+
+SubClassOf(:Episode :MediaEntity)
+
+# Class: :Location (:Location)
+
+SubClassOf(:Location :MediaEntity)
+
+# Class: :Producer (:Producer)
+
+SubClassOf(:Producer :Person)
+
+# Class: :Prop (:Prop)
+
+SubClassOf(:Prop :FictionalEntity)
+
+# Class: :PropUsage (:PropUsage)
+
+SubClassOf(:PropUsage :Instruction)
+
+# Class: :Scene (:Scene)
+
+SubClassOf(:Scene :MediaEntity)
+SubClassOf(:Scene ObjectMinCardinality(1 :hasShot :Shot))
+
+# Class: :Shot (:Shot)
+
+SubClassOf(:Shot :MediaEntity)
+
+# Class: :ShotInstruction (:ShotInstruction)
+
+SubClassOf(:ShotInstruction :Instruction)
+
+# Class: :VoiceActor (:VoiceActor)
+
+SubClassOf(:VoiceActor :Person)
+
+
+SubObjectPropertyOf(ObjectPropertyChain(:spokenBy :portrayedBy) :spokenByActor)
+)

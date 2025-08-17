@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- Root Element: AnimatedShow -->
+    <xs:element name="AnimatedShow">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Title" type="xs:string"/>
+                <xs:element name="Season" type="xs:positiveInteger"/>
+                <xs:element name="Episode" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="EpisodeTitle" type="xs:string"/>
+                            <xs:element name="EpisodeNumber" type="xs:positiveInteger"/>
+                            <xs:element name="Director" type="xs:string"/>
+                            <xs:element name="Producer" maxOccurs="unbounded" type="xs:string"/>
+                            <xs:element name="Scene" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="SceneNumber" type="xs:positiveInteger"/>
+                                        <xs:element name="Description" type="xs:string"/>
+                                        <xs:element name="Location" type="xs:string"/>
+                                        <xs:element name="Shot" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="ShotNumber" type="xs:positiveInteger"/>
+                                                    <xs:element name="ShotInstructions" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                                                    <xs:element name="Prop" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="PropName" type="xs:string"/>
+                                                                <xs:element name="Usage" type="xs:string"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Dialogue" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Character" type="xs:string"/>
+                                                                <xs:element name="Text" type="xs:string"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="VoiceActor" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ActorName" type="xs:string"/>
+                                        <xs:element name="CharacterName" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
