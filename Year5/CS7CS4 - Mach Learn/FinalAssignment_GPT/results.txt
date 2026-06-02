@@ -1,0 +1,304 @@
+###################################MATH####################################
+<Baseline Model>
+10.748941 M parameters
+step 0: train loss 2.6581, val loss 2.6635
+step 500: train loss 1.5209, val loss 1.5163
+step 999: train loss 1.3025, val loss 1.3029
+
+Exact-match accuracy: 0.0370
+Token-level accuracy: 0.3819
+
+Sample predictions:
+35+99=147 (target: 134)
+79+67=117 (target: 146)
+97+24=115 (target: 121)
+63+64=112 (target: 127)
+57+98=150 (target: 155)
+34+95=136 (target: 129)
+33+96=126 (target: 129)
+63+80=161 (target: 143)
+20+45=110 (target: 65)
+42+32=87 (target: 74)
+
+<Optimised Model>
+0.103437 M parameters
+step 0: train loss 2.5810, val loss 2.5795
+step 500: train loss 1.5846, val loss 1.5810
+step 1000: train loss 1.5220, val loss 1.5171
+step 1500: train loss 1.4483, val loss 1.4485
+step 2000: train loss 1.4131, val loss 1.4106
+step 2500: train loss 1.3957, val loss 1.3964
+step 3000: train loss 1.3858, val loss 1.3869
+step 3500: train loss 1.3767, val loss 1.3746
+step 4000: train loss 1.3692, val loss 1.3685
+step 4500: train loss 1.2346, val loss 1.2332
+step 4999: train loss 1.2017, val loss 1.1986
+
+Exact-match accuracy: 0.3640
+Token-level accuracy: 0.6555
+
+Sample predictions:
+3+6=13 (target: 9)
+72+48=120 (target: 120)
+29+11=40 (target: 40)
+16+7=114 (target: 23)
+88+57=154 (target: 145)
+86+52=138 (target: 138)
+13+83=95 (target: 96)
+30+60=80 (target: 90)
+20+17=47 (target: 37)
+26+52=77 (target: 78)
+
+<Addition>
+0.103437 M parameters
+step 0: train loss 2.5809, val loss 2.5806
+step 500: train loss 1.5769, val loss 1.5807
+step 1000: train loss 1.4902, val loss 1.4985
+step 1500: train loss 1.3762, val loss 1.3851
+step 2000: train loss 1.2615, val loss 1.2688
+step 2500: train loss 1.2388, val loss 1.2464
+step 3000: train loss 1.1961, val loss 1.2047
+step 3500: train loss 1.1739, val loss 1.1857
+step 4000: train loss 1.1576, val loss 1.1665
+step 4500: train loss 1.1508, val loss 1.1599
+step 4999: train loss 1.1426, val loss 1.1536
+
+Exact-match accuracy: 0.7190
+Token-level accuracy: 0.8475
+
+Sample predictions:
+90+75=165 (target: 165)
+36+58=94 (target: 94)
+32+5=47 (target: 37)
+71+82=153 (target: 153)
+65+9=74 (target: 74)
+64+92=156 (target: 156)
+15+81=96 (target: 96)
+38+79=117 (target: 117)
+83+7=71 (target: 90)
+27+5=107 (target: 32)
+
+<Subtraction>
+0.103437 M parameters
+step 0: train loss 2.5733, val loss 2.5702
+step 500: train loss 1.5755, val loss 1.5774
+step 1000: train loss 1.5155, val loss 1.5229
+step 1500: train loss 1.4636, val loss 1.4661
+step 2000: train loss 1.4282, val loss 1.4366
+step 2500: train loss 1.3924, val loss 1.4028
+step 3000: train loss 1.3181, val loss 1.3344
+step 3500: train loss 1.2032, val loss 1.2125
+step 4000: train loss 1.1620, val loss 1.1659
+step 4500: train loss 1.1403, val loss 1.1471
+step 4999: train loss 1.1300, val loss 1.1375
+
+Exact-match accuracy: 0.7410
+Token-level accuracy: 0.8489
+
+Sample predictions:
+40-37=3 (target: 3)
+72-23=49 (target: 49)
+73-41=32 (target: 32)
+75-72=3 (target: 3)
+39-26=13 (target: 13)
+41-30=11 (target: 11)
+14-1=23 (target: 13)
+64-13=51 (target: 51)
+52-35=17 (target: 17)
+58-52=6 (target: 6)
+
+<Multiplication>
+0.103437 M parameters
+step 0: train loss 2.5900, val loss 2.5743
+step 500: train loss 1.3017, val loss 1.3692
+step 1000: train loss 1.0564, val loss 1.2578
+step 1500: train loss 0.7560, val loss 1.2957
+step 2000: train loss 0.4905, val loss 1.5900
+step 2500: train loss 0.3334, val loss 1.8325
+step 3000: train loss 0.2680, val loss 1.9482
+step 3500: train loss 0.2430, val loss 2.1038
+step 4000: train loss 0.2324, val loss 2.1141
+step 4500: train loss 0.2227, val loss 2.1528
+step 4999: train loss 0.2188, val loss 2.2576
+
+Exact-match accuracy: 0.6850
+Token-level accuracy: 0.7984
+
+Sample predictions:
+14*16=224 (target: 224)
+19*11=199 (target: 209)
+13*13=169 (target: 169)
+17*2=34 (target: 34)
+9*8=8 (target: 72)
+10*7=70 (target: 70)
+2*10=20 (target: 20)
+18*11=198 (target: 198)
+0*18=0 (target: 0)
+12*15=180 (target: 180)
+
+<Division>
+0.103437 M parameters
+step 0: train loss 2.5769, val loss 2.5703
+step 500: train loss 1.3996, val loss 1.4690
+step 1000: train loss 1.0816, val loss 1.3079
+step 1500: train loss 0.7488, val loss 1.4539
+step 2000: train loss 0.4752, val loss 1.7612
+step 2500: train loss 0.3421, val loss 1.9484
+step 3000: train loss 0.2839, val loss 2.2012
+step 3500: train loss 0.2535, val loss 2.4355
+step 4000: train loss 0.2414, val loss 2.4399
+step 4500: train loss 0.2294, val loss 2.6082
+step 4999: train loss 0.2262, val loss 2.6605
+
+Exact-match accuracy: 0.8372
+Token-level accuracy: 0.8946
+
+Sample predictions:
+10/2=5 (target: 5)
+51/1=51 (target: 51)
+30/30=1 (target: 1)
+8/4=22 (target: 2)
+30/15=2 (target: 2)
+75/75=1 (target: 1)
+56/1=56 (target: 56)
+31/31=1 (target: 1)
+25/1=55 (target: 25)
+80/80=1 (target: 1)
+
+<Combination>
+0.103824 M parameters
+step 0: train loss 2.7583, val loss 2.7588
+step 500: train loss 1.7388, val loss 1.7417
+step 1000: train loss 1.6975, val loss 1.7017
+step 1500: train loss 1.6460, val loss 1.6518
+step 2000: train loss 1.6110, val loss 1.6177
+step 2500: train loss 1.5813, val loss 1.5948
+step 3000: train loss 1.5602, val loss 1.5741
+step 3500: train loss 1.5441, val loss 1.5605
+step 4000: train loss 1.5309, val loss 1.5486
+step 4500: train loss 1.5179, val loss 1.5372
+step 4999: train loss 1.5084, val loss 1.5319
+
+Exact-match accuracy: 0.0690
+Token-level accuracy: 0.3207
+
+Sample predictions:
+40/2=30 (target: 20)
+83/83=1 (target: 1)
+75-39=32 (target: 36)
+59-16=25 (target: 43)
+5+53=121 (target: 58)
+88+60=133 (target: 148)
+47+36=87 (target: 83)
+10/2=3 (target: 5)
+45+87=139 (target: 132)
+88-82=0 (target: 6)
+
+##################################BOOLEAN###################################
+<Baseline Model>
+10.659857 M parameters
+step 0: train loss 2.9026, val loss 2.8347
+step 500: train loss 0.1771, val loss 0.8724
+step 999: train loss 0.1680, val loss 0.7893
+
+Exact-match accuracy: 0.7857
+Token-level accuracy: 0.8065
+
+Sample predictions:
+True AND True=True (target: True)
+True AND False=False (target: False)
+False AND False=False (target: False)
+False XOR False=True (target: False)
+True OR False=False (target: True)
+NOT True=False (target: False)
+False AND True=False (target: False)
+False XOR True=True (target: True)
+NOT False=True (target: True)
+True OR True=True (target: True)
+
+<Simple/Optimised Model>
+0.102929 M parameters
+step 0: train loss 2.8068, val loss 2.8236
+step 500: train loss 0.2417, val loss 0.2908
+step 1000: train loss 0.1775, val loss 0.5240
+step 1500: train loss 0.1702, val loss 0.5837
+step 2000: train loss 0.1684, val loss 0.7960
+step 2500: train loss 0.1663, val loss 0.8569
+step 3000: train loss 0.1657, val loss 0.8001
+step 3500: train loss 0.1651, val loss 0.8969
+step 4000: train loss 0.1647, val loss 0.9415
+step 4500: train loss 0.1652, val loss 0.9526
+step 4999: train loss 0.1649, val loss 0.9776
+
+Exact-match accuracy: 0.9286
+Token-level accuracy: 0.9355
+
+Sample predictions:
+False OR True=True (target: True)
+False OR False=False (target: False)
+True AND False=False (target: False)
+True XOR True=False (target: False)
+True OR False=True (target: True)
+NOT False=True (target: True)
+True OR True=True (target: True)
+True AND True=True (target: True)
+False AND True=False (target: False)
+True XOR False=True (target: True)
+
+<Nested>
+0.103187 M parameters
+step 0: train loss 2.9679, val loss 2.9699
+step 500: train loss 0.2590, val loss 0.2664
+step 1000: train loss 0.2329, val loss 0.2382
+step 1500: train loss 0.2276, val loss 0.2362
+step 2000: train loss 0.2251, val loss 0.2343
+step 2500: train loss 0.2244, val loss 0.2317
+step 3000: train loss 0.2239, val loss 0.2390
+step 3500: train loss 0.2242, val loss 0.2411
+step 4000: train loss 0.2224, val loss 0.2342
+step 4500: train loss 0.2217, val loss 0.2332
+step 4999: train loss 0.2221, val loss 0.2311
+
+Exact-match accuracy: 0.6667
+Token-level accuracy: 0.7342
+
+Sample predictions:
+(False OR False) AND True=False (target: False)
+(True XOR True) AND True=False (target: False)
+(False OR False) XOR True=False (target: True)
+(False XOR True) OR True=True (target: True)
+(True XOR True) OR True=True (target: True)
+(False AND False) AND True=True (target: False)
+(False OR True) XOR True=True (target: False)
+(True XOR False) OR False=False (target: True)
+(False AND True) OR True=True (target: True)
+(True XOR False) XOR True=False (target: False)
+
+<Combination>
+0.103187 M parameters
+step 0: train loss 2.9676, val loss 2.9708
+step 500: train loss 0.2887, val loss 0.2936
+step 1000: train loss 0.2536, val loss 0.2592
+step 1500: train loss 0.2487, val loss 0.2621
+step 2000: train loss 0.2449, val loss 0.2514
+step 2500: train loss 0.2438, val loss 0.2562
+step 3000: train loss 0.2419, val loss 0.2537
+step 3500: train loss 0.2428, val loss 0.2646
+step 4000: train loss 0.2427, val loss 0.2652
+step 4500: train loss 0.2410, val loss 0.2560
+step 4999: train loss 0.2401, val loss 0.2513
+
+Exact-match accuracy: 0.7209
+Token-level accuracy: 0.7766
+
+Sample predictions:
+False AND False=False (target: False)
+(True OR False) AND False=False (target: False)
+(False XOR True) AND True=True (target: True)
+True XOR False=True (target: True)
+False XOR False=True (target: False)
+(True AND True) XOR False=True (target: True)
+(True XOR False) AND True=False (target: True)
+True AND False=False (target: False)
+True AND True=True (target: True)
+(False AND False) AND True=False (target: False)

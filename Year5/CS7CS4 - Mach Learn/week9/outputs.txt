@@ -1,0 +1,141 @@
+[input_childSpeech_trainingSet.txt]
+
+Using GPU
+-----------------
+file: input_childSpeech_trainingSet.txt
+chars: ['\n', ' ', 'A', 'B', 'C', 'D', 'G', 'H', 'I', 'L', 'M', 'N', 'R', 'S', 'U', 'W', 'Y', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'w', 'y']
+dataset_size: 246982
+vocab_size: 40
+10.769704 M parameters
+step 0: train loss 3.7696, val loss 3.7707
+step 500: train loss 0.3381, val loss 0.3400
+step 999: train loss 0.3285, val loss 0.3360
+
+I dance Look airplane
+All gone Come hereaspill I see doggy
+Where ball Bath time
+Yummy apple More bubbles
+Bath time I jump
+I nt cookie Come here
+I see bird I want that
+No mine I hungry
+I tired All done
+No touch Where kitty go
+Big hug Go park
+Bath time I dance
+Daddy read me dis I wraw
+No like it I draw
+I found it Night night
+I tired I want more juice please
+I draw Daddy read me dinosaur book before bed
+I love you Big hug
+Night night My teddy
+Read book I make mess
+I see bird What is that
+Mama I wan
+
+[input_childSpeech_testSet.txt]
+
+Using GPU
+-----------------
+file: input_childSpeech_testSet.txt
+chars: ['\n', ' ', 'A', 'B', 'C', 'D', 'G', 'H', 'I', 'L', 'M', 'N', 'R', 'S', 'U', 'W', 'Y', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'v', 'w', 'y']
+dataset_size: 24113
+vocab_size: 40
+10.769704 M parameters
+step 0: train loss 3.7685, val loss 3.7635
+step 500: train loss 0.1772, val loss 0.5326
+step 999: train loss 0.0376, val loss 0.9720
+
+Yummy apple Mama I want play with big red ball outside
+I want more juice please All done
+Yumy apple I wash hands
+I lone I hide
+No nap Yummy apple
+No like it Look moon
+I hide More bubbles
+I climb I see bird
+I hide I make mess
+Where kitty go I jump
+No like it All gone
+I hungry More more
+I bired I diance
+I dide I run fast
+Moore bubbles I sing
+Read book I did it
+Read book I dit
+I tired No stop
+I hide I love you
+Look moon I wash hands
+I draw No like it
+Help me please No mine
+Big hug I tired
+I love yo
+
+[input_shakespeare.txt]@ 1000 steps
+Using GPU
+-----------------
+file: input_shakespeare.txt
+chars: ['\n', ' ', '!', '$', '&', "'", ',', '-', '.', '3', ':', ';', '?', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+dataset_size: 1115394
+vocab_size: 65
+10.788929 M parameters
+step 0: train loss 4.2221, val loss 4.2306
+step 500: train loss 1.7462, val loss 1.9004
+step 999: train loss 1.3919, val loss 1.6020
+
+To shink to before I enmy body,
+And you Evil Engles
+To much your backate, my qualiy come unto his liste,
+Where to laster: brightly Ejugman us said,
+Is none, answer, I cirabberland,
+To comm ag longer why has killl one;
+For while I am was wall not dear
+Than solt lared and my lord, be, I sire
+best you knowledgest.
+
+CLAUDIUS:
+Let is Romeore mane to do taketh hearb.
+
+Feirst Servingman:
+But an your jeques marrkle seemy be by.
+
+BRUCKINGHAM:
+Why, that I what's weal ast a is mistrance,
+Whose beaten that
+
+
+[input_shakespeare.txt] @2000 steps
+Using GPU
+-----------------
+file: input_shakespeare.txt
+chars: ['\n', ' ', '!', '$', '&', "'", ',', '-', '.', '3', ':', ';', '?', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+dataset_size: 1115394
+vocab_size: 65
+10.788929 M parameters
+step 0: train loss 4.2221, val loss 4.2306
+step 500: train loss 1.7462, val loss 1.9004
+step 1000: train loss 1.3925, val loss 1.6026
+step 1500: train loss 1.2664, val loss 1.5260
+step 1999: train loss 1.1862, val loss 1.5028
+
+S.
+
+CORIOLANUS:
+We the mudder of what the laws ignoranty poor suffeence?
+
+Servitor:
+Yea, quoth merchance it in the must noble
+But so, and I stimall, therefore forsarve.
+
+AUTOLYCUS:
+The other's god, I'll have togue.
+
+CORIOLAND:
+Nay, such her's sitor, it musuch done serve
+A moon now our is men by thee the house,
+I sest in a whole if one to meet,
+And I am to my heam to-morrow it gose;
+Not, what though mine is thy grace? I will send thee when thousands,
+Thou mayst myself are I talk much merrish dear
+
