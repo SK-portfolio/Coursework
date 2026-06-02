@@ -1,0 +1,13 @@
+Build:
+mvn clean package
+Index:
+java -jar target/cran-1.2.jar index data/cran.all.1400 data/cran.qry results english bm25
+java -jar target/cran-1.2.jar index data/cran.all.1400 data/cran.qry results english vsm
+Search:
+java -cp target/cran-1.2.jar ie.tcd.komolafs.CranfieldInteractive index english bm25
+java -cp target/cran-1.2.jar ie.tcd.komolafs.CranfieldInteractive index english vsm
+Score:
+cd trec_eval
+./trec_eval -q ../data/cranqrel.trec ../results-english-bm25.txt
+./trec_eval -q ../data/cranqrel.trec ../results-english-vsm.txt
+
