@@ -1,0 +1,31 @@
+1. Download Required Files & Place in The Same Working Directory: 
+   >ghcnm.py 							(data-processing script)
+   >app.py 							(visualisation application)
+   >Raw GHCN-M files:
+	-ghcnm.tavg.v4.0.1.20251123.qcf.inv 			(station inventory)
+	-ghcnm.tavg.v4.0.1.20251123.qcf.dat 			(temperature data)
+   >libs.txt							(required python libraries)
+
+
+2. Install Required Python Libraries via Command prompt:
+	pip install -r libs.txt
+
+
+3. Run the Data-Processing Script to Generate the Cleaned Dataset:
+	python ghcnm.py
+(Outputs ghcnm_europe_1924_2024.csv in working directory.)
+
+
+4. Launch the Dashboard by Running:
+	python app.py
+
+
+5. Open the Local Session Initiated by Dash in a Browser:
+	“Dash is running on http://127.0.0.1:8050/”
+
+
+6. Using the Visualisation:
+   >Zoom in on any blue cluster and click a red station marker to load its data.
+   >The annual average and monthly temperature plots update automatically after selection.
+   >Hover over markers in any plot to view additional details.
+   >The monthly climatology plot supports interactive legend filtering: single-click a month label to hide its line; double-click to isolate that month. 
